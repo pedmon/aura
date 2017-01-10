@@ -1,6 +1,6 @@
 #Aura
 
-Welcome to Aura (I don't have a cool acronym yet, I just like the name).  
+Welcome to Aura (I don't have a cool acronym yet, I just like the name). Formerly this code in a previous iteration was called Cosmicp but this is a way better name.  
 
 ##OVERVIEW
 
@@ -48,6 +48,22 @@ The code currently handles a single CR species.  Multiple CR species would be an
 
 Synchrotron and Bremsstrahlung can calculate emissions from electrons, positrons, protons and nuclei.  IC can only calculates emissions for electrons and positrons, while Proton-Proton collisions only works for protons.
 
+##PAPERS
+
+Other than the papers referenced in the code itself you will want to see this paper here for an overview:
+
+http://adsabs.harvard.edu/abs/2011MNRAS.414.3521E
+
+Other examples of the use of this code can be found here:
+
+http://adsabs.harvard.edu/abs/2012ApJ...745..146K
+
+http://adsabs.harvard.edu/abs/2013ApJ...777...25K
+
 ##PROBLEMS? CONCERNS? COMMENTS? DEEP THOUGHTS?
 
 Contact Paul P. Edmon (pedmon@cfa.harvard.edu)
+
+##REFERENCES
+
+It is asked that those who use this code refernce the original paper in MNRAS.
