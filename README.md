@@ -7,8 +7,11 @@ Welcome to Aura (I don't have a cool acronym yet, I just like the name).
 Aura takes any arbitrary cosmic ray (CR) spectrum and along with information about the ambient medium generates radiative byproducts for a variety of interactions.  Currently included in Aura are:
 
 -Synchrotron-
+
 -Inverse Compton (IC)-
+
 -Bremsstrahlung-
+
 -Proton-Proton Interactions-
 
 Aura is intended to be an updated version of the Cosmicp code (see Edmon et.al. (2011) for details).  It is written completely in FORTRAN 90 using a pseudo-object oriented style.
@@ -20,8 +23,11 @@ The usage for Aura is straight forward.  A user only needs to edit 2 files.  The
 The second file is the mod_user.f90 file.  Within the user will find two subroutines labelled User_Env and User_CR.  User_Env allows one to define the environment in question.  All the environment variables are listed in the example file as well as the units that the variables should be in.  The environment variables actually used by the program vary depending on which type of radiation one is simulating.  Here is a list of what is required for each radiation type:
 
 Synchrotron: n_e (electron number density), B (magnetic field strength), theta (magnetic field angle with respect to the observer)
+
 IC: nph, nuph (ambient photon spectrum and frequency binning)
+
 Bremsstrahlung: n_e, n_p (proton number density), n_alpha (alpha particle density), n_H (neutral Hydrogen density), n_He (neutral Helium density)
+
 Proton-Proton Interactions: n_p, n_H
 
 The units for these ambient variables are CGS with ambient photon spectrum for IC (assumed to be isotropic) being in [photons/cm^3/erg].
