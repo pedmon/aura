@@ -1,6 +1,9 @@
+#Aura
+
 Welcome to Aura (I don't have a cool acronym yet, I just like the name).  
 
-OVERVIEW
+##OVERVIEW
+
 Aura takes any arbitrary cosmic ray (CR) spectrum and along with information about the ambient medium generates radiative byproducts for a variety of interactions.  Currently included in Aura are:
 
 -Synchrotron-
@@ -10,7 +13,8 @@ Aura takes any arbitrary cosmic ray (CR) spectrum and along with information abo
 
 Aura is intended to be an updated version of the Cosmicp code (see Edmon et.al. (2011) for details).  It is written completely in FORTRAN 90 using a pseudo-object oriented style.
 
-USAGE
+##USAGE
+
 The usage for Aura is straight forward.  A user only needs to edit 2 files.  The first is the AURA.data namelist.  The namelist is divided into two portions, one regarding the inputs called the Information namelist, the other deals with the outputs called the Emission namelist.  A description of the components required for each namelist can be found in Aura.data.dist.
 
 The second file is the mod_user.f90 file.  Within the user will find two subroutines labelled User_Env and User_CR.  User_Env allows one to define the environment in question.  All the environment variables are listed in the example file as well as the units that the variables should be in.  The environment variables actually used by the program vary depending on which type of radiation one is simulating.  Here is a list of what is required for each radiation type:
@@ -26,7 +30,8 @@ The User_CR routine defines the CR spectrum and species. One needs to define the
 
 Once you are done then just compile and run.  That's it.  Aura runs on a single zone model, so for the given conditions it will generate emissivities (j_nu) and particle source functions (q_particle type).  The emissivities are in [ergs/cm^3/s/Hz/str], where as the source functions are in [particles/cm^3/s/erg].  These files are output to the directory defined in AURA.data along with the defined header.  If one wishes to edit the output units, simply look at mod_io.f90.  The specific routines that calculate the emission output emissivities and source functions so it should be easy to convert to what ever units on desires.
 
-CAVEATS
+##CAVEATS
+
 This is a single zone model so it currently does not handle large blocks of data.  That being said the code can be modified fairly easily to iterate over large blocks of data if that is desired.
 
 The solutions from Aura are good to within 1% if the CR spectrum and ambient photon spectrum have ~10 bins logarithmically spaced per decade.  Changing the number of output bins does not impact the accuracy of the calculation as each bin is calculated independantly.  If one sees oscillations in the spectrum, your CR spectral resolution or ambient photon field is too coarse for the output emission resolution.  Cranking up the resolution in the CR spectrum will resolve this issue.  The oscillations are due to insufficient sampling of the spectrum.  This causes the spectrum to look like the sum of multiple single particle emission spectra all at different energies rather than a smooth spectrum.  Simple tests can show what resolution will work for the problem you have in mind.
@@ -37,7 +42,6 @@ The code currently handles a single CR species.  Multiple CR species would be an
 
 Synchrotron and Bremsstrahlung can calculate emissions from electrons, positrons, protons and nuclei.  IC can only calculates emissions for electrons and positrons, while Proton-Proton collisions only works for protons.
 
-PROBLEMS? CONCERNS? COMMENTS? DEEP THOUGHTS?
-Contact Paul P. Edmon (pedmon@cfa.harvard.edu)
+##PROBLEMS? CONCERNS? COMMENTS? DEEP THOUGHTS?
 
-Last updated: 8-11-2011
+Contact Paul P. Edmon (pedmon@cfa.harvard.edu)
